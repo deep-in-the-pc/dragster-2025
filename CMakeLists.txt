@@ -44,8 +44,8 @@ pico_sdk_init()
 #	pico_stdlib
 #    pico_explorer # <-- List libraries here!
 #)
-include("lib/HM01B0/HM01B0.cmake")
 include("lib/PicoHM01B0/PicoHM01B0.cmake")
+include("lib/PicoBNO055/PicoBNO055.cmake")
 include("lib/wifi_stream/telemetry_stream.cmake")
 
 # create map/bin/hex file etc.

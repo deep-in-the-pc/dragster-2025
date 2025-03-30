@@ -52,6 +52,11 @@
         "telemetry_stream.h": "c",
         "clocks.h": "c",
         "vreg.h": "c",
-        "format": "c"
+        "format": "c",
+        "picobno055.h": "c",
+        "dragster_bno055.h": "c",
+        "flash.h": "c",
+        "sync.h": "c",
+        "time.h": "c"
     }
 }

@@ -275,33 +275,6 @@ int telemetry_stream_start(const char* ssid, const char* password, uint16_t port
     }
     printf("Connected to WiFi\n");
 
-    // set up the initial configuration: pin numbers, orientation
-    PicoHM01B0_config config;
-    memset(&config, 0, sizeof(config));
-    config.i2c_dat_gpio = HM01B0_SDA_PIN;
-    config.i2c_clk_gpio = HM01B0_SCL_PIN;
-    config.vsync_gpio   = HM01B0_vsync_pin;
-    config.d0_gpio      = HM01B0_d0_pin;
-    config.pclk_gpio    = HM01B0_pclk_pin;
-    config.mclk_gpio    = -1;
-    config.mclk_freq    = 24000000;
-    config.bus_4bit     = true;
-    config.flip_vertical   = false;
-    config.flip_horizontal = false;
-
-    // Initialize the camera
-    if (!PicoHM01B0_begin(&camera, &config)) {
-        // Handle initialization error here (e.g., print error message or blink an LED)
-        return 1;
-    }
-
-    PicoHM01B0_set_auto_exposure(&camera);
-
-    // Start streaming at 60 Hz, QVGA binning
-    PicoHM01B0_start_streaming(&camera, 162, true, true);
-    //PicoHM01B0_start_streaming_resolution(&camera, 0xd7, 0x80, false, false);
-
-
     // Launch the telemetry server on core1.
     multicore_launch_core1(telemetry_server_thread);
 

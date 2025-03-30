@@ -1,5 +1,11 @@
 #ifndef DRAGSTER_H
 #define DRAGSTER_H
+/*
+ * System Configuration
+ */
+#define SYS_CLK_KHZ 250000
+#define WIFI_SSID "Myhouse-Mesh"
+#define WIFI_PASSWORD "Wolf!410"
 /* 
  * HM01B0 Camera Configuration
  */
@@ -23,8 +29,16 @@
 /* Camera */
 #define HM01B0_WIDTH 160
 #define HM01B0_HEIGHT 120
-#define FRAME_BUFFER_SIZE  (HM01B0_WIDTH * HM01B0_HEIGHT)  // Adjust if your resolution is different
 
-#define SYS_CLK_KHZ          250000
+/*
+ * BN0055 IMU Configuration
+ */
+
+ /* I2C */
+#define IMU_SDA_PIN 2
+#define IMU_SCL_PIN 3
+ /* PIO */
+#define IMU_INT_PIN 6
+#define IMU_RST_PIN 8
 
 #endif // DRAGSTER_H
